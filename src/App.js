@@ -17,7 +17,6 @@ const App = () => {
     } else {
       console.log('lets add that badboy');
       setFaves([...favesCopy, film]);
-      // setFaves(faves.push(film))
     };
 
     console.log(faves)
