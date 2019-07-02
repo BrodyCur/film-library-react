@@ -35,7 +35,7 @@ const FilmList = ({onFaveToggle, faves, handleFilmDetails}) => {
       <nav className="film-list-filters">
         <button ref={allRef} className="film-list-filter" onClick={() => {handleFilterClick('all')}}>
           ALL
-          <span className="section-count">{TMDB.films.length}</span>
+          <span className="section-count">{allFilms.length}</span>
         </button>
         <button ref={favesRef} className="film-list-filter" onClick={() => {handleFilterClick('faves')}}>
           FAVES

@@ -9,14 +9,13 @@ const App = () => {
   const [currentFilm, setCurrentFilm] = useState({});
 
   const onFaveToggle = (film) => {
-    const favesCopy = faves.slice();
     if (faves.includes(film)) {
       console.log('already inside faves list');
-      favesCopy.splice(faves.indexOf(film), 1);
-      setFaves([favesCopy]);
+      faves.splice(faves.indexOf(film), 1);
+      setFaves([...faves]);
     } else {
       console.log('lets add that badboy');
-      setFaves([...favesCopy, film]);
+      setFaves([...faves, film]);
     };
     console.log(faves)
   };
