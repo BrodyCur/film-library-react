@@ -1,19 +1,19 @@
 import React from 'react';
 import Faves from './Faves'
 
-const FilmRow = ({film, onFaveToggle}) => {
-
-  const handleDetailsClick = (film) => {
-    console.log(`Fetching details for ${film.title}`)
-  }
+const FilmRow = ({film, onFaveToggle, handleFilmDetails}) => {
 
   const handleClick = (film) => {
     console.log('film', film);
     onFaveToggle(film);
-  }
+  };
+
+  const handleFilmDetailsClick = (film) => {
+    handleFilmDetails(film);
+  };
 
   return (
-    <article onClick={() => handleDetailsClick(film)} className="film-row">
+    <article onClick={() => handleFilmDetailsClick(film)} className="film-row">
       <img src={`https://image.tmdb.org/t/p/w780/${film.poster_path}`} alt={film.title}></img>
       <div className="film-summary">
         <h1>{film.title}</h1>

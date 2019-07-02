@@ -1,9 +1,9 @@
 import React, {useState, useRef} from 'react';
 import TMDB from './TMDB';
 import FilmRow from './FilmRow';
-import { all } from 'q';
+// import { all } from 'q';
 
-const FilmList = ({onFaveToggle, faves}) => {
+const FilmList = ({onFaveToggle, faves, handleFilmDetails}) => {
 
   const [filter, setFilter] = useState('all');
 
@@ -24,21 +24,25 @@ const FilmList = ({onFaveToggle, faves}) => {
     console.log(allRef, favesRef)
   };
 
+  const allFilms = TMDB.films;
+  const films = filter === 'faves' ? faves : allFilms;
+  const filmList = films.map(film => {
+    return (<FilmRow key={film.id} film={film} onFaveToggle={onFaveToggle} faves={faves} handleFilmDetails={handleFilmDetails}/>)
+  })
+
   return (
     <div>
-      <div className="film-list-filters">
-        <div ref={allRef} className="film-list-filter" onClick={() => {handleFilterClick('all')}}>
+      <nav className="film-list-filters">
+        <button ref={allRef} className="film-list-filter" onClick={() => {handleFilterClick('all')}}>
           ALL
           <span className="section-count">{TMDB.films.length}</span>
-        </div>
-        <div ref={favesRef} className="film-list-filter" onClick={() => {handleFilterClick('faves')}}>
+        </button>
+        <button ref={favesRef} className="film-list-filter" onClick={() => {handleFilterClick('faves')}}>
           FAVES
-          <span className="section-count">0</span>
-        </div>
-      </div>
-      {TMDB.films.map((film) => {
-          return (<FilmRow key={film.id} film={film} onFaveToggle={onFaveToggle} faves={faves}/>)
-      })}
+          <span className="section-count">{faves.length}</span>
+        </button>
+      </nav>
+      {filmList}
     </div>
   );
 };
