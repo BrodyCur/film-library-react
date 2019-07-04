@@ -4,7 +4,7 @@ const FilmDetails = ({currentFilm}) => {
   let details;
 
   if(currentFilm.id) {
-    console.log('Great success, so proud', currentFilm);
+    // console.log('Great success, so proud', currentFilm);
 
     const backdropUrl = `https://image.tmdb.org/t/p/w1280/${currentFilm.backdrop_path}`;
     const posterUrl = `https://image.tmdb.org/t/p/w780/${currentFilm.poster_path}`
