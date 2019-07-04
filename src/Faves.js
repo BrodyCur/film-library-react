@@ -6,7 +6,6 @@ const Faves = ({onFaveToggle}) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
-    console.log('Fave was clicked!');
     if (isFave === false) {
       setIsFave(true);
       e.target.classList.add('remove_from_queue');
@@ -19,7 +18,6 @@ const Faves = ({onFaveToggle}) => {
       e.target.innerText = 'add_to_queue';
     };
 
-    console.log(e.target)
     onFaveToggle();
   }
 

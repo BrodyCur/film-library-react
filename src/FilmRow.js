@@ -4,7 +4,6 @@ import Faves from './Faves'
 const FilmRow = ({film, onFaveToggle, handleFilmDetails}) => {
 
   const handleClick = (film) => {
-    console.log('film', film);
     onFaveToggle(film);
   };
 

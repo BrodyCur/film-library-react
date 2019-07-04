@@ -11,7 +11,6 @@ const FilmList = ({onFaveToggle, faves, handleFilmDetails}) => {
   const favesRef = useRef();
 
   const handleFilterClick = (filter) => {
-    console.log('setting filter to', filter)
     setFilter(filter);
     if (filter === 'all') {
       allRef.current.classList.add('is-active');
@@ -21,7 +20,6 @@ const FilmList = ({onFaveToggle, faves, handleFilmDetails}) => {
       allRef.current.classList.remove('is-active');
     };
 
-    console.log(allRef, favesRef)
   };
 
   const allFilms = TMDB.films;

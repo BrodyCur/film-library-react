@@ -10,27 +10,22 @@ const App = () => {
 
   const onFaveToggle = (film) => {
     if (faves.includes(film)) {
-      console.log('already inside faves list');
       faves.splice(faves.indexOf(film), 1);
       setFaves([...faves]);
     } else {
-      console.log('lets add that badboy');
       setFaves([...faves, film]);
     };
-    console.log(faves)
   };
 
   const handleFilmDetails = (film) => {
     const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
-    // console.log(url);
-    // console.log('current film title', film.title);
 
     axios.get(url)
     .then((response) => {
       setCurrentFilm(response.data);
     })
     .catch((error) => {
-      console.log(error)
+      return error
     });
   };
 
